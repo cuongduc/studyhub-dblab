@@ -48,11 +48,11 @@ class Courses {
 		}
 	}
 
-	public function create_course($course_title, $course_code, $course_alias, $cat_id, $course_type, $start_date, $length, $user_id, $school)
+	public function create_course($course_title, $course_code, $course_alias, $cat_id, $course_type, $start_date, $length, $user_id)
 	{
 		$create_date = time();
 
-		$query = $this->db->prepare("INSERT INTO `sm_courses` (`course_title`, `course_code`, `course_alias`, `cat_id`,`course_type`, `start_date`, `length`, `school`)
+		$query = $this->db->prepare("INSERT INTO `sm_courses` (`course_title`, `course_code`, `course_alias`, `cat_id`,`course_type`, `start_date`, `length`)
 									 VALUES (?, ?, ?, ?, ?, ?, ?)");
 		$query->bindValue(1, $course_title);
 		$query->bindValue(2, $course_code);
@@ -61,7 +61,7 @@ class Courses {
 		$query->bindValue(5, $course_type);
 		$query->bindValue(6, $start_date);
 		$query->bindValue(7, $length);
-		$query->bindValue(8, $school);
+		// $query->bindValue(8, $school);
 
 		try {
 			$query->execute();

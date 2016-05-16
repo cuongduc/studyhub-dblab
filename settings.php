@@ -222,8 +222,8 @@ if (isset($_GET['success']) && empty($_GET['success']) === false) {
 			},
 			success : function(data) {
 				if (data == 1) {
-					alert('Your profile has been updated successfully!');
-					window.location = window.location.pathname + '?username=' + username;
+				alert('Your profile has been updated successfully!');
+				window.location = window.location.pathname + '?username=' + username;
 				}
 			}
 		});
